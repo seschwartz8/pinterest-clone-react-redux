@@ -1,3 +1,59 @@
+# Pinterest Clone
+
+#### Pinterest clone react app that utilizes redux, Google OAuth, portals, redux forms, and react router to provide CRUD functionality.
+
+#### By Sarah "Sasa" Schwartz, April 2020
+
+---
+
+## Table of Contents
+
+1. [Description](#description)
+2. [Setup/Installation Requirements](#installation-requirements)
+3. [Technologies Used](#technologies-used)
+4. [Application Sample Images](#sample-images)
+
+---
+
+## Description
+
+Pinterest clone react app that utilizes redux, Google OAuth, portals, redux forms, and react router to provide CRUD functionality. You can log in, post photos, view all photos, view specific photo details, and edit/delete photos (but only if you were the one who posted them).
+
+## Installation Requirements
+
+- clone repository to your desktop
+- cd into client directory
+
+  - npm install
+  - npm start (starts app on localhost:3000)
+
+- open second terminal window
+- cd into api directory
+
+  - npm install
+  - npm start (starts api server)
+  - (note that all data will be stored in db.json file in api directory)
+
+## Technologies Used
+
+- React
+- React router
+- Redux
+- Redux thunk
+- Redux form
+- Google OAuth
+- Portals (to create modals)
+- json server (for running API)
+- Semantic UI
+
+## Sample Images
+
+##### Image description
+
+![alt description of image](./img/image.png)
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
