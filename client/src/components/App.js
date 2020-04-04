@@ -10,7 +10,7 @@ import Header from './Header';
 import Footer from './Footer';
 import history from '../history';
 
-function App() {
+const App = () => {
   // Header/footer components are nested in router to allow use of links, but do not have a route asigned so they're always visible
   return (
     <div className='ui container'>
@@ -28,6 +28,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
