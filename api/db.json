@@ -1,16 +1,3 @@
 {
-  "streams": [
-    {
-      "title": "Tea",
-      "description": "Watch someone make tea. Ooooh so relaxing",
-      "userId": "100409585657033242492",
-      "id": 2
-    },
-    {
-      "title": "Video Games",
-      "description": "Playing lots of video games",
-      "userId": "100409585657033242492",
-      "id": 3
-    }
-  ]
+  "streams": []
 }
