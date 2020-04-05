@@ -48,7 +48,8 @@ class PhotoForm extends Component {
         <Field
           name='tags'
           component={this.renderInput}
-          label='Enter tags separated by # (e.g. #cool#fun)'
+          label='Enter tags separated by #'
+          placeholder='#cool#snazzy#puppies'
         />
         <button className='ui primary button'>Submit</button>
       </form>
@@ -65,8 +66,8 @@ const validate = (formValues) => {
   if (!formValues.url) {
     errors.url = 'You must enter a URL';
   }
-  if (!formValues.tag) {
-    errors.tag =
+  if (!formValues.tags) {
+    errors.tags =
       'You must enter at least one tag with the following format (#tag#secondTag)';
   }
   return errors;
