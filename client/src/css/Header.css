@@ -1,0 +1,19 @@
+div.ui.transparent.icon.input {
+  background-color: #efefef;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+i.pinterest {
+  color: #e70024;
+  size: 200%;
+}
+
+i.search.link {
+  color: #8e8e8e;
+}
+
+div.ui.secondary.pointing.menu {
+  margin-top: 8px;
+  border: none;
+}
