@@ -1,5 +1,4 @@
 // Reusable form for creating and editing photos
-
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
@@ -70,6 +69,7 @@ const validate = (formValues) => {
     errors.tags =
       'You must enter at least one tag with the following format (#tag#secondTag)';
   }
+  // Returning an empty object tells the redux-form the input is valid
   return errors;
 };
 

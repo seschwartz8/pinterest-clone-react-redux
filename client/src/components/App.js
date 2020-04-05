@@ -21,7 +21,7 @@ const App = () => {
           {/*Switch shows only the first route that matches*/}
           <Route path='/' exact component={PhotoList} />
           <Route path='/photos/new' exact component={PhotoCreate} />
-          <Route path='photo/:id' exact component={PhotoDetails} />
+          <Route path='photos/:id' exact component={PhotoDetails} />
           <Route path='photos/edit/:id' exact component={PhotoEdit} />
           <Route path='/photos/delete/:id' exact component={PhotoDelete} />
         </Switch>
