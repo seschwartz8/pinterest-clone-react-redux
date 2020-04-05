@@ -1,6 +1,14 @@
-import axios from 'axios';
+import * as type from './types';
 
-export default axios.create({
-  // The URL I configured the json-server api server to run on (see the package.json in api directory)
-  baseURL: 'http://localhost:3001',
-});
+export const signIn = (userId) => {
+  return {
+    type: type.SIGN_IN,
+    payload: userId,
+  };
+};
+
+export const signOut = () => {
+  return {
+    type: type.SIGN_OUT,
+  };
+};
