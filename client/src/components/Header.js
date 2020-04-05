@@ -24,8 +24,8 @@ const Header = () => {
       <Link to='/' className='item'>
         Home
       </Link>
-      <div className='right ui secondary pointing menu'>
-        <GoogleAuth className='item' />
+      <div className='right menu'>
+        <GoogleAuth className='ui item' />
       </div>
     </div>
   );

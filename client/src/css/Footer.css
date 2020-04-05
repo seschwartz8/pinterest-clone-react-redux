@@ -1,0 +1,16 @@
+.footer {
+  padding: 2%;
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  background-color: #efefef;
+  color: #757575;
+}
+
+.footer a {
+  color: #333333;
+}
+
+.footer a:hover {
+  color: black;
+}
