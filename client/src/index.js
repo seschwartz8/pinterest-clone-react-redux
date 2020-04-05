@@ -7,7 +7,7 @@ import reduxThunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
 
-// Compose is for our Redux Dev Tools that make redux debugging easier
+// Compose is for my Redux Dev Tools that make redux debugging easier
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(

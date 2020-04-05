@@ -1,0 +1,12 @@
+// This file prevents typos between action types in actions vs. reducers
+
+// Auth actions
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_OUT = 'SIGN_OUT';
+
+// Photo actions
+export const CREATE_PHOTO = 'CREATE_PHOTO';
+export const DELETE_PHOTO = 'DELETE_PHOTO';
+export const FETCH_PHOTO = 'FETCH_PHOTO';
+export const FETCH_PHOTOS = 'FETCH_PHOTOS';
+export const EDIT_PHOTO = 'EDIT_PHOTO';
