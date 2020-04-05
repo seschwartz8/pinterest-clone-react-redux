@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class PhotoDetails extends Component {
   render() {
     return (
-      <div>
+      <div className='content ui container'>
         <div>PhotoDetails</div>
       </div>
     );

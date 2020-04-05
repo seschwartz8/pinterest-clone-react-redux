@@ -11,7 +11,7 @@ class PhotoCreate extends Component {
 
   render() {
     return (
-      <div>
+      <div className='content ui container'>
         <h3>Post a Photo</h3>
         <PhotoForm onSubmit={this.onSubmit} />
       </div>
