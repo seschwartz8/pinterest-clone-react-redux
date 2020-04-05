@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className='ui secondary pointing menu'>
       <Link to='/' className='item'>
-        <i className='pinterest icon' />
+        <i className='pinterest icon big' />
       </Link>
       <div className='ui category search item'>
         <div className='ui transparent icon input'>
@@ -21,12 +21,11 @@ const Header = () => {
           />
         </div>
       </div>
-
       <Link to='/' className='item'>
         Home
       </Link>
-      <div className='right menu'>
-        <GoogleAuth />
+      <div className='right ui secondary pointing menu'>
+        <GoogleAuth className='item' />
       </div>
     </div>
   );
