@@ -28,3 +28,27 @@ export const createPhoto = (formValues) => {
     history.push('/');
   };
 };
+
+export const fetchPhotos = () => {
+  return async (dispatch) => {
+    // GET request with axios to get all photos
+    const response = await photos.get('/photos');
+    dispatch({
+      type: type.FETCH_PHOTOS,
+      payload: response.data,
+    });
+  };
+};
+
+export const hoverPhoto = (photoId) => {
+  return {
+    type: type.HOVER_PHOTO,
+    payload: photoId,
+  };
+};
+
+export const leavePhoto = () => {
+  return {
+    type: type.LEAVE_PHOTO,
+  };
+};

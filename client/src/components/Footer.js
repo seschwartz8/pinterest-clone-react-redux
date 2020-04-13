@@ -7,7 +7,9 @@ const Footer = () => {
       <div className='footer'>
         <div>
           Created by{' '}
-          <a href='http://www.github.com/seschwartz8'>Sasa Schwartz</a>
+          <a target='_blank' href='http://www.github.com/seschwartz8'>
+            Sasa Schwartz
+          </a>
         </div>
       </div>
     </div>

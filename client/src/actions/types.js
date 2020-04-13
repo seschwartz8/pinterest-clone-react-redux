@@ -10,3 +10,5 @@ export const DELETE_PHOTO = 'DELETE_PHOTO';
 export const FETCH_PHOTO = 'FETCH_PHOTO';
 export const FETCH_PHOTOS = 'FETCH_PHOTOS';
 export const EDIT_PHOTO = 'EDIT_PHOTO';
+export const HOVER_PHOTO = 'HOVER_PHOTO';
+export const LEAVE_PHOTO = 'LEAVE_PHOTO';
