@@ -76,7 +76,9 @@ const PhotoCard = ({ photo, ...props }) => {
         style={{ maxWidth: '250px' }}
       />
       <PinButtonContainer>
-        {props.isHoverPhoto === photo.id ? renderPinButton(photo) : null}
+        {props.isHoverPhoto === photo.id && props.isSignedIn
+          ? renderPinButton(photo)
+          : null}
       </PinButtonContainer>
       <AdminControlsContainer>
         {props.isHoverPhoto === photo.id && photo.userId === props.currentUserId
@@ -91,6 +93,7 @@ const mapStateToProps = (state) => {
   return {
     currentUserId: state.auth.userId,
     isHoverPhoto: state.isHoverPhoto,
+    isSignedIn: state.auth.isSignedIn,
   };
 };
 

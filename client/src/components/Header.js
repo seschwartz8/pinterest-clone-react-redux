@@ -1,9 +1,10 @@
 import React from 'react';
 import GoogleAuth from './GoogleAuth';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import '../css/Header.css';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className='ui secondary pointing menu'>
       <Link to='/' className='item'>
@@ -24,6 +25,12 @@ const Header = () => {
       <Link to='/' className='item'>
         Home
       </Link>
+      {props.isSignedIn ? (
+        <Link to='/photos/new' className='ui item'>
+          Post Photo
+        </Link>
+      ) : null}
+
       <div className='right menu'>
         <GoogleAuth className='ui item' />
       </div>
@@ -31,4 +38,10 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    isSignedIn: state.auth.isSignedIn,
+  };
+};
+
+export default connect(mapStateToProps)(Header);
