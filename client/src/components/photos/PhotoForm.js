@@ -1,6 +1,7 @@
 // Reusable form for creating and editing photos
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 class PhotoForm extends Component {
   renderError = ({ error, touched }) => {
@@ -51,6 +52,7 @@ class PhotoForm extends Component {
           placeholder='#cool#snazzy#puppies'
         />
         <button className='ui primary button'>Submit</button>
+        <Link to='/'> Cancel </Link>
       </form>
     );
   }

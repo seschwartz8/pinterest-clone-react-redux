@@ -45,7 +45,7 @@ const PhotoCard = ({ photo, ...props }) => {
 
   const renderPinButton = () => {
     // Allow pinning a photo
-    return <button className='ui button red'>Save</button>;
+    return <button className='ui button red'>Pin</button>;
   };
 
   const onHover = (photoId) => {

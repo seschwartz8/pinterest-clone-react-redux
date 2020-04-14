@@ -15,6 +15,19 @@ export const signOut = () => {
   };
 };
 
+export const hoverPhoto = (photoId) => {
+  return {
+    type: type.HOVER_PHOTO,
+    payload: photoId,
+  };
+};
+
+export const leavePhoto = () => {
+  return {
+    type: type.LEAVE_PHOTO,
+  };
+};
+
 export const createPhoto = (formValues) => {
   return async (dispatch, getState) => {
     // POST request with axios to create new photo with current userId
@@ -40,15 +53,26 @@ export const fetchPhotos = () => {
   };
 };
 
-export const hoverPhoto = (photoId) => {
-  return {
-    type: type.HOVER_PHOTO,
-    payload: photoId,
+export const fetchPhoto = (id) => {
+  return async (dispatch) => {
+    // GET request for specific photo with given id
+    const response = await photos.get(`/photos/${id}`);
+    dispatch({
+      type: type.FETCH_PHOTO,
+      payload: response.data,
+    });
   };
 };
 
-export const leavePhoto = () => {
-  return {
-    type: type.LEAVE_PHOTO,
+export const editPhoto = (id, formValues) => {
+  return async (dispatch) => {
+    // PATCH request with axios to edit specific photo with new formValues
+    const response = await photos.patch(`/photos/${id}`, formValues);
+    dispatch({
+      type: type.EDIT_PHOTO,
+      payload: response.data,
+    });
+    // Navigate the user back to list of streams (only after API request is resolved)
+    history.push('/');
   };
 };
