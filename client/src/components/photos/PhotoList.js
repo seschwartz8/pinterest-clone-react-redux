@@ -13,7 +13,7 @@ class PhotoList extends Component {
     // Allow creator of photo to edit or delete photo
     if (photo.userId === this.props.currentUserId) {
       return (
-        <div>
+        <React.Fragment>
           <Link to={`/photos/edit/${photo.id}`} className='ui button primary'>
             Edit
           </Link>
@@ -23,17 +23,22 @@ class PhotoList extends Component {
           >
             Delete
           </Link>
-        </div>
+        </React.Fragment>
       );
     }
   };
 
-  toggleHover = (photoId) => {
-    console.log('hover toggled');
+  renderPinButton = (photo) => {
+    // Allow pinning a photo
+    return <button className='ui button grey'>Pin {photo.title}</button>;
+  };
 
-    this.props.isHoverPhoto
-      ? this.props.leavePhoto()
-      : this.props.hoverPhoto(photoId);
+  onHover = (photoId) => {
+    this.props.hoverPhoto(photoId);
+  };
+
+  onLeave = () => {
+    this.props.leavePhoto();
   };
 
   renderPhotos = () => {
@@ -41,16 +46,52 @@ class PhotoList extends Component {
     return this.props.photos.map((photo) => {
       return (
         <div>
-          <img
+          <div
             key={photo.id}
-            alt={photo.title}
-            src={photo.url}
-            onMouseEnter={() => this.toggleHover(photo.id)}
-            onMouseLeave={() => this.toggleHover(photo.id)}
-          />
-          {this.props.isHoverPhoto === photo.id
-            ? this.renderAdminControls(photo)
-            : null}
+            onMouseEnter={() => this.onHover(photo.id)}
+            onMouseLeave={() => this.onLeave()}
+            style={{
+              // TEMPORARY FIXED IMAGE SIZE
+              backgroundImage: `url(${photo.url})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              width: '300px',
+              height: '300px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '1%',
+            }}
+          >
+            <div
+              // TEMPORARY FIXED BUTTON PLACEMENT
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                width: '80%',
+              }}
+            >
+              {this.props.isHoverPhoto === photo.id
+                ? this.renderPinButton(photo)
+                : null}
+            </div>
+            <div
+              // TEMPORARY FIXED BUTTON PLACEMENT
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                width: '80%',
+              }}
+            >
+              {this.props.isHoverPhoto === photo.id &&
+              photo.userId === this.props.currentUserId
+                ? this.renderAdminControls(photo)
+                : null}
+            </div>
+            {console.log(photo)}
+          </div>
         </div>
       );
     });
@@ -68,17 +109,8 @@ class PhotoList extends Component {
   };
 
   render() {
-    let text;
-    if (this.props.isHoverPhoto) {
-      text = this.props.isHoverPhoto;
-    } else {
-      text = 'null';
-    }
-
     return (
       <div className='content ui container'>
-        <p>{text}</p>
-
         {this.renderCreateButton()}
         {this.renderPhotos()}
       </div>
