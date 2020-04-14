@@ -7,9 +7,8 @@ import PhotoForm from './PhotoForm';
 class PhotoEdit extends Component {
   componentDidMount() {
     // Use the props that router automatically passes to rendered components (it contains the params from the routes, such as :id)
-    const specificId = this.props.match.params.id;
-    this.props.fetchPhoto(specificId);
-    console.log(specificId);
+    const { id } = this.props.match.params;
+    this.props.fetchPhoto(id);
   }
 
   onSubmit = (formValues) => {
@@ -37,9 +36,9 @@ class PhotoEdit extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   // Router automatically passes these props to its rendered components
-  const specificId = ownProps.match.params.id;
+  const { id } = ownProps.match.params;
   return {
-    photo: state.photos[specificId],
+    photo: state.photos[id],
   };
 };
 

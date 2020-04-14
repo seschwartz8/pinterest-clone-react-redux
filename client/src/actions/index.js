@@ -76,3 +76,16 @@ export const editPhoto = (id, formValues) => {
     history.push('/');
   };
 };
+
+export const deletePhoto = (id) => {
+  return async (dispatch) => {
+    // DELETE request with axios to remove specific photo
+    await photos.delete(`/photos/${id}`);
+    dispatch({
+      type: type.DELETE_PHOTO,
+      payload: id,
+    });
+    // Navigate the user back to list of streams (only after API request is resolved)
+    history.push('/');
+  };
+};
