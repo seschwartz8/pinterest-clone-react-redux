@@ -39,14 +39,12 @@ class PhotoDelete extends Component {
 
   render() {
     return (
-      <div className='content ui container'>
-        <Modal
-          title='Delete Photo'
-          content={this.renderMessage()}
-          actions={this.renderButtons()}
-          onDismiss={() => history.push('/')}
-        />
-      </div>
+      <Modal
+        title='Delete Photo'
+        content={this.renderMessage()}
+        actions={this.renderButtons()}
+        onDismiss={() => history.push('/')}
+      />
     );
   }
 }

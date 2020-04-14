@@ -52,7 +52,10 @@ class PhotoForm extends Component {
           placeholder='#cool#snazzy#puppies'
         />
         <button className='ui primary button'>Submit</button>
-        <Link to='/'> Cancel </Link>
+        <Link to='/' className='ui button'>
+          {' '}
+          Cancel{' '}
+        </Link>
       </form>
     );
   }
