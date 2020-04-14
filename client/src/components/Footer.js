@@ -7,7 +7,11 @@ const Footer = () => {
       <div className='footer'>
         <div>
           Created by{' '}
-          <a target='_blank' href='http://www.github.com/seschwartz8'>
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href='http://www.github.com/seschwartz8'
+          >
             Sasa Schwartz
           </a>
         </div>
