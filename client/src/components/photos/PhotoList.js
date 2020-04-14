@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 import { fetchPhotos } from '../../actions';
 import { Link } from 'react-router-dom';
 import PhotoCard from './PhotoCard';
+import styled from 'styled-components';
+
+const PhotoTiles = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 0 10px;
+  grid-auto-rows: 10px;
+`;
 
 class PhotoList extends Component {
   componentDidMount() {
@@ -32,7 +40,7 @@ class PhotoList extends Component {
     return (
       <div className='content ui container'>
         {this.renderCreateButton()}
-        {this.renderPhotos()}
+        <PhotoTiles>{this.renderPhotos()}</PhotoTiles>
       </div>
     );
   }

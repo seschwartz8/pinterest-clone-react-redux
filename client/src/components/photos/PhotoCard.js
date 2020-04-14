@@ -1,20 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { hoverPhoto, leavePhoto } from '../../actions';
 import { Link } from 'react-router-dom';
 
 const PhotoContainer = styled.div`
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 300px;
-  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1%;
 `;
 
 const PinButtonContainer = styled.div`
@@ -30,6 +24,9 @@ const AdminControlsContainer = styled.div`
 `;
 
 const PhotoCard = ({ photo, ...props }) => {
+  // Establish access to img in DOM (set initial value so it's not null to start)
+  const refContainer = useRef('100');
+
   const renderAdminControls = (photo) => {
     // Allow creator of photo to edit or delete photo
     if (photo.userId === props.currentUserId) {
@@ -63,23 +60,30 @@ const PhotoCard = ({ photo, ...props }) => {
   };
 
   return (
-    <div>
-      <PhotoContainer
-        style={{ backgroundImage: `url(${photo.url})` }}
-        onMouseEnter={() => onHover(photo.id)}
-        onMouseLeave={() => onLeave()}
-      >
-        <PinButtonContainer>
-          {props.isHoverPhoto === photo.id ? renderPinButton(photo) : null}
-        </PinButtonContainer>
-        <AdminControlsContainer>
-          {props.isHoverPhoto === photo.id &&
-          photo.userId === props.currentUserId
-            ? renderAdminControls(photo)
-            : null}
-        </AdminControlsContainer>
-      </PhotoContainer>
-    </div>
+    <PhotoContainer
+      onMouseEnter={() => onHover(photo.id)}
+      onMouseLeave={() => onLeave()}
+      style={{
+        gridRowEnd: `span ${Math.ceil(
+          refContainer.current.clientHeight / 10 + 1
+        )}`,
+      }}
+    >
+      <img
+        ref={refContainer}
+        src={photo.url}
+        alt={photo.title}
+        style={{ maxWidth: '250px' }}
+      />
+      <PinButtonContainer>
+        {props.isHoverPhoto === photo.id ? renderPinButton(photo) : null}
+      </PinButtonContainer>
+      <AdminControlsContainer>
+        {props.isHoverPhoto === photo.id && photo.userId === props.currentUserId
+          ? renderAdminControls(photo)
+          : null}
+      </AdminControlsContainer>
+    </PhotoContainer>
   );
 };
 
