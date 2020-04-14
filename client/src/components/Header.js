@@ -10,21 +10,17 @@ const Header = (props) => {
       <Link to='/' className='item'>
         <i className='pinterest icon big' />
       </Link>
+      <Link to='/' className='item'>
+        Home
+      </Link>
       <div className='ui category search item'>
         <div className='ui transparent icon input'>
           <div className='left aligned'>
             <i className='search link icon' />
           </div>
-          <input
-            className='prompt'
-            type='text'
-            placeholder='Search animals...'
-          />
+          <input className='prompt' type='text' placeholder='Search' />
         </div>
       </div>
-      <Link to='/' className='item'>
-        Home
-      </Link>
       {props.isSignedIn ? (
         <Link to='/photos/new' className='ui item'>
           Post Photo

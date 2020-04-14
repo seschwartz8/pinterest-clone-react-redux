@@ -4,23 +4,23 @@ import { connect } from 'react-redux';
 import { hoverPhoto, leavePhoto } from '../../actions';
 import { Link } from 'react-router-dom';
 
-const PhotoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 const PinButtonContainer = styled.div`
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  width: 80%;
 `;
 
 const AdminControlsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  width: 100%;
+  padding: 0 10%;
 `;
 
 const PhotoCard = ({ photo, ...props }) => {
@@ -32,13 +32,10 @@ const PhotoCard = ({ photo, ...props }) => {
     if (photo.userId === props.currentUserId) {
       return (
         <React.Fragment>
-          <Link to={`/photos/edit/${photo.id}`} className='ui button primary'>
+          <Link to={`/photos/edit/${photo.id}`} className='ui button'>
             Edit
           </Link>
-          <Link
-            to={`/photos/delete/${photo.id}`}
-            className='ui button negative'
-          >
+          <Link to={`/photos/delete/${photo.id}`} className='ui button grey'>
             Delete
           </Link>
         </React.Fragment>
@@ -46,24 +43,28 @@ const PhotoCard = ({ photo, ...props }) => {
     }
   };
 
-  const renderPinButton = (photo) => {
+  const renderPinButton = () => {
     // Allow pinning a photo
-    return <button className='ui button grey'>Pin {photo.title}</button>;
+    return <button className='ui button red'>Save</button>;
   };
 
   const onHover = (photoId) => {
+    // Change isHoverPhoto state to photoId
     props.hoverPhoto(photoId);
   };
 
   const onLeave = () => {
+    // Change isHoverPhoto state to null
     props.leavePhoto();
   };
 
   return (
-    <PhotoContainer
+    <div
       onMouseEnter={() => onHover(photo.id)}
       onMouseLeave={() => onLeave()}
       style={{
+        position: 'relative',
+        textAlign: 'center',
         gridRowEnd: `span ${Math.ceil(
           refContainer.current.clientHeight / 10 + 1
         )}`,
@@ -73,11 +74,14 @@ const PhotoCard = ({ photo, ...props }) => {
         ref={refContainer}
         src={photo.url}
         alt={photo.title}
-        style={{ maxWidth: '250px' }}
+        style={{
+          maxWidth: '250px',
+          borderRadius: '15px',
+        }}
       />
       <PinButtonContainer>
         {props.isHoverPhoto === photo.id && props.isSignedIn
-          ? renderPinButton(photo)
+          ? renderPinButton()
           : null}
       </PinButtonContainer>
       <AdminControlsContainer>
@@ -85,7 +89,7 @@ const PhotoCard = ({ photo, ...props }) => {
           ? renderAdminControls(photo)
           : null}
       </AdminControlsContainer>
-    </PhotoContainer>
+    </div>
   );
 };
 
