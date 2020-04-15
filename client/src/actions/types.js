@@ -6,6 +6,7 @@ export const SIGN_OUT = 'SIGN_OUT';
 
 export const PIN_PHOTO = 'PIN_PHOTO';
 export const FETCH_BOARD = 'FETCH_BOARD';
+export const UNPIN_PHOTO = 'UNPIN_PHOTO';
 
 // Photo actions
 export const CREATE_PHOTO = 'CREATE_PHOTO';

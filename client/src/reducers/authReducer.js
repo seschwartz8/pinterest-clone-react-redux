@@ -1,4 +1,5 @@
 import * as type from '../actions/types';
+import _ from 'lodash';
 
 const INITIAL_STATE = {
   isSignedIn: null,
@@ -16,6 +17,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, board: [action.payload, ...state.board] };
     case type.FETCH_BOARD:
       return { ...state, board: action.payload };
+    case type.UNPIN_PHOTO:
+      return _.omit(state, action.payload);
     default:
       return state;
   }

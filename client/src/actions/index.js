@@ -33,6 +33,17 @@ export const pinPhoto = (photo) => {
   };
 };
 
+export const unPinPhoto = (id) => {
+  return async (dispatch) => {
+    // DELETE request with axios to remove specific pinned photo
+    await photos.delete(`/board/${id}`);
+    dispatch({
+      type: type.UNPIN_PHOTO,
+      payload: id,
+    });
+  };
+};
+
 export const fetchBoard = () => {
   return async (dispatch) => {
     // GET request with axios to get all pinned photos

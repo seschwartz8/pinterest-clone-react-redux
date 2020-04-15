@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { hoverPhoto, leavePhoto, pinPhoto } from '../../actions';
+import { hoverPhoto, leavePhoto, unPinPhoto } from '../../actions';
 import { Link } from 'react-router-dom';
 
 const UnPinButtonContainer = styled.div`
@@ -20,7 +20,10 @@ const PinCard = ({ photo, ...props }) => {
   const renderUnPinButton = () => {
     // Allow pinning a photo
     return (
-      <button onClick={() => props.pinPhoto(photo)} className='ui button red'>
+      <button
+        onClick={() => props.unPinPhoto(photo.id)}
+        className='ui button red'
+      >
         Remove Pin
       </button>
     );
@@ -74,5 +77,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   hoverPhoto,
   leavePhoto,
-  pinPhoto,
+  unPinPhoto,
 })(PinCard);
