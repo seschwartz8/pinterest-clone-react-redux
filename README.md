@@ -9,9 +9,9 @@
 ## Table of Contents
 
 1. [Description](#description)
-2. [Setup/Installation Requirements](#installation-requirements)
+2. [Installation](#installation-requirements)
 3. [Technologies Used](#technologies-used)
-4. [Application Sample Images](#sample-images)
+4. [Sample Images](#sample-images)
 
 ---
 
@@ -19,7 +19,9 @@
 
 Pinterest clone react app that utilizes redux, Google OAuth, portals, redux forms, and react router to provide CRUD functionality. You can log in with google, post photos, view all photos, view specific photo details, and edit/delete photos (but only if you were the one who posted them), and pin a photo to your board.
 
-## Installation Requirements
+I learned the basics of how to structure and route this website from a wonderful Udemy course by Stephen Grider: Modern React with Redux.
+
+## Installation
 
 - clone repository to your desktop
 - cd into client directory
@@ -48,9 +50,17 @@ Pinterest clone react app that utilizes redux, Google OAuth, portals, redux form
 
 ## Sample Images
 
-##### Image description
+##### Homepage view of all photos
 
-![homepage viewing all photos](./img/homepage.png)
+![Homepage view of all photos](./img/homepage.png)
+
+##### Hovering over a photo
+
+![Hovering over a photo](./img/on-hover.png)
+
+##### Delete modal
+
+![Delete modal](./img/delete-modal.png)
 
 ---
 
