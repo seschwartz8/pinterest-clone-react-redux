@@ -17,7 +17,7 @@
 
 ## Description
 
-Pinterest clone react app that utilizes redux, Google OAuth, portals, redux forms, and react router to provide CRUD functionality. You can log in, post photos, view all photos, view specific photo details, and edit/delete photos (but only if you were the one who posted them).
+Pinterest clone react app that utilizes redux, Google OAuth, portals, redux forms, and react router to provide CRUD functionality. You can log in with google, post photos, view all photos, view specific photo details, and edit/delete photos (but only if you were the one who posted them), and pin a photo to your board.
 
 ## Installation Requirements
 
@@ -50,7 +50,7 @@ Pinterest clone react app that utilizes redux, Google OAuth, portals, redux form
 
 ##### Image description
 
-![alt description of image](./img/image.png)
+![homepage viewing all photos](./img/homepage.png)
 
 ---
 
