@@ -38,12 +38,17 @@ class PhotoDetails extends Component {
   renderButtons = () => {
     return (
       <React.Fragment>
-        <button
-          onClick={() => this.props.pinPhoto(this.props.photo)}
-          className='ui button red'
-        >
-          Pin
-        </button>
+        {this.props.isSignedIn ? (
+          <button
+            onClick={() => this.props.pinPhoto(this.props.photo)}
+            className='ui button red'
+          >
+            Pin
+          </button>
+        ) : (
+          'You must sign in to pin'
+        )}
+
         <Link to='/' className='ui button'>
           Cancel
         </Link>
@@ -68,6 +73,7 @@ const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
   return {
     photo: state.photos[id],
+    isSignedIn: state.auth.isSignedIn,
   };
 };
 
