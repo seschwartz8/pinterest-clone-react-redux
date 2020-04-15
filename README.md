@@ -9,7 +9,7 @@
 ## Table of Contents
 
 1. [Description](#description)
-2. [Installation](#installation-requirements)
+2. [Installation](#installation)
 3. [Technologies Used](#technologies-used)
 4. [Sample Images](#sample-images)
 
