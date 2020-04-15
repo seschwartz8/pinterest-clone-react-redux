@@ -17,12 +17,14 @@ export const signOut = () => {
   };
 };
 
+// PIN ACTIONS
+
 export const pinPhoto = (photo) => {
   return async (dispatch, getState) => {
     // POST request with axios to pin photo to current user's board
     const { userId } = getState().auth;
 
-    const response = await photos.post('/board', {
+    const response = await photos.post('/pins', {
       ...photo,
       pinnedBy: userId,
     });
@@ -36,23 +38,23 @@ export const pinPhoto = (photo) => {
 export const unPinPhoto = (id) => {
   return async (dispatch) => {
     // DELETE request with axios to remove specific pinned photo
-    await photos.delete(`/board/${id}`);
+    await photos.delete(`/pins/${id}`);
     dispatch({
       type: type.UNPIN_PHOTO,
       payload: id,
     });
+    // Programmatically refresh the page to show the pin is removed
+    window.location.reload();
   };
 };
 
-export const fetchBoard = () => {
+export const fetchPins = () => {
   return async (dispatch) => {
     // GET request with axios to get all pinned photos
-    const response = await photos.get('/board');
-
-    console.log(response.data);
+    const response = await photos.get('/pins');
 
     dispatch({
-      type: type.FETCH_BOARD,
+      type: type.FETCH_PINS,
       payload: response.data,
     });
   };

@@ -26,6 +26,11 @@ const Header = (props) => {
           Post Photo
         </Link>
       ) : null}
+      {props.isSignedIn ? (
+        <Link to='/pins' className='ui item'>
+          Pins
+        </Link>
+      ) : null}
 
       <div className='right menu'>
         <GoogleAuth className='ui item' />

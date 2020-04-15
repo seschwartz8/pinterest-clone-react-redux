@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { hoverPhoto, leavePhoto, unPinPhoto } from '../../actions';
-import { Link } from 'react-router-dom';
 
 const UnPinButtonContainer = styled.div`
   position: absolute;
@@ -13,7 +12,7 @@ const UnPinButtonContainer = styled.div`
   justify-content: center;
 `;
 
-const PinCard = ({ photo, ...props }) => {
+const PinCard = ({ pin, ...props }) => {
   // Establish access to img in DOM (set initial value so it's not null to start)
   const refContainer = useRef('100');
 
@@ -21,7 +20,7 @@ const PinCard = ({ photo, ...props }) => {
     // Allow pinning a photo
     return (
       <button
-        onClick={() => props.unPinPhoto(photo.id)}
+        onClick={() => props.unPinPhoto(pin.id)}
         className='ui button red'
       >
         Remove Pin
@@ -31,7 +30,7 @@ const PinCard = ({ photo, ...props }) => {
 
   const onHover = () => {
     // Change isHoverPhoto state to photoId
-    props.hoverPhoto(photo.id);
+    props.hoverPhoto(pin.id);
   };
 
   const onLeave = () => {
@@ -40,10 +39,9 @@ const PinCard = ({ photo, ...props }) => {
   };
 
   return (
-    <Link
-      onMouseEnter={() => onHover(photo.id)}
+    <div
+      onMouseEnter={() => onHover(pin.id)}
       onMouseLeave={() => onLeave()}
-      to={`/photos/${photo.id}`}
       style={{
         position: 'relative',
         textAlign: 'center',
@@ -54,17 +52,17 @@ const PinCard = ({ photo, ...props }) => {
     >
       <img
         ref={refContainer}
-        src={photo.url}
-        alt={photo.title}
+        src={pin.url}
+        alt={pin.title}
         style={{
           maxWidth: '250px',
           borderRadius: '15px',
         }}
       />
       <UnPinButtonContainer>
-        {props.isHoverPhoto === photo.id ? renderUnPinButton() : null}
+        {props.isHoverPhoto === pin.id ? renderUnPinButton() : null}
       </UnPinButtonContainer>
-    </Link>
+    </div>
   );
 };
 

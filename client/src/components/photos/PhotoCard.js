@@ -15,7 +15,7 @@ const PinButtonContainer = styled.div`
 
 const AdminControlsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: absolute;
   bottom: 15%;
   left: 0;

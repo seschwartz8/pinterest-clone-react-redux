@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchBoard } from '../../actions';
+import { fetchPins } from '../../actions';
 import PinCard from './PinCard';
 import styled from 'styled-components';
 
@@ -11,16 +11,19 @@ const PhotoTiles = styled.div`
   grid-auto-rows: 10px;
 `;
 
-class PhotoBoard extends Component {
+class PinBoard extends Component {
   componentDidMount() {
     // Fetch photos on component mount
-    this.props.fetchBoard();
+    this.props.fetchPins();
   }
 
   renderPhotos = () => {
     // Render all photos cards as HTML
-    return this.props.board.map((photo) => {
-      return <PinCard key={photo.id} photo={photo} />;
+    if (!this.props.pins) {
+      return 'Loading...';
+    }
+    return this.props.pins.map((pin) => {
+      return <PinCard key={pin.id} pin={pin} />;
     });
   };
 
@@ -35,10 +38,10 @@ class PhotoBoard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    board: state.auth.board,
+    pins: Object.values(state.pins),
   };
 };
 
 export default connect(mapStateToProps, {
-  fetchBoard,
-})(PhotoBoard);
+  fetchPins,
+})(PinBoard);

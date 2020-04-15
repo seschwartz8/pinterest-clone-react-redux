@@ -4,9 +4,10 @@
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
 
+// Pin actions
 export const PIN_PHOTO = 'PIN_PHOTO';
-export const FETCH_BOARD = 'FETCH_BOARD';
 export const UNPIN_PHOTO = 'UNPIN_PHOTO';
+export const FETCH_PINS = 'FETCH_PINS';
 
 // Photo actions
 export const CREATE_PHOTO = 'CREATE_PHOTO';

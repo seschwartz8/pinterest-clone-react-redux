@@ -31,8 +31,6 @@ class PhotoDetails extends Component {
   };
 
   renderButtons = () => {
-    const { id } = this.props.match.params;
-
     return (
       <button
         onClick={() => this.props.pinPhoto(this.props.photo)}

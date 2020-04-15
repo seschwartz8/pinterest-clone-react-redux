@@ -7,7 +7,7 @@ import PhotoCreate from './photos/PhotoCreate';
 import PhotoDetails from './photos/PhotoDetails';
 import PhotoDelete from './photos/PhotoDelete';
 import PhotoEdit from './photos/PhotoEdit';
-import PhotoBoard from './photos/PhotoBoard';
+import PinBoard from './pins/PinBoard';
 import Header from './Header';
 import Footer from './Footer';
 import history from '../history';
@@ -25,7 +25,7 @@ const App = () => {
           <Route path='/photos/:id' exact component={PhotoDetails} />
           <Route path='/photos/edit/:id' exact component={PhotoEdit} />
           <Route path='/photos/delete/:id' exact component={PhotoDelete} />
-          <Route path='/board' exact component={PhotoBoard} />
+          <Route path='/pins' exact component={PinBoard} />
         </Switch>
         <Footer />
       </Router>
