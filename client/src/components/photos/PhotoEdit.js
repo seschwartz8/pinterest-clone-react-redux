@@ -25,10 +25,24 @@ class PhotoEdit extends Component {
     return (
       <div className='content ui container'>
         <h3>Edit Photo</h3>
-        <PhotoForm
-          initialValues={_.pick(this.props.photo, 'title', 'url', 'tags')}
-          onSubmit={this.onSubmit}
-        />
+        <div className='ui grid'>
+          <div class='ten wide column'>
+            <PhotoForm
+              initialValues={_.pick(this.props.photo, 'title', 'url', 'tags')}
+              onSubmit={this.onSubmit}
+            />
+          </div>
+          <div class='six wide column'>
+            <img
+              src={this.props.photo.url}
+              alt={this.props.photo.title}
+              style={{
+                maxHeight: '100%',
+                maxWidth: '100%',
+              }}
+            />
+          </div>
+        </div>
       </div>
     );
   }

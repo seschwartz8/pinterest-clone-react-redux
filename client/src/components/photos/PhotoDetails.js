@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPhoto, pinPhoto } from '../../actions';
 import Modal from '../Modal';
 import history from '../../history';
+import { Link } from 'react-router-dom';
 
 class PhotoDetails extends Component {
   componentDidMount() {
@@ -24,7 +25,11 @@ class PhotoDetails extends Component {
     }
     return (
       <div>
-        <img src={this.props.photo.url} alt={this.props.photo.title} />
+        <img
+          src={this.props.photo.url}
+          alt={this.props.photo.title}
+          style={{ maxHeight: '300px', maxWidth: '500px' }}
+        />
         <h4>{this.props.photo.tags}</h4>
       </div>
     );
@@ -32,12 +37,17 @@ class PhotoDetails extends Component {
 
   renderButtons = () => {
     return (
-      <button
-        onClick={() => this.props.pinPhoto(this.props.photo)}
-        className='ui button red'
-      >
-        Pin
-      </button>
+      <React.Fragment>
+        <button
+          onClick={() => this.props.pinPhoto(this.props.photo)}
+          className='ui button red'
+        >
+          Pin
+        </button>
+        <Link to='/' className='ui button'>
+          Cancel
+        </Link>
+      </React.Fragment>
     );
   };
 

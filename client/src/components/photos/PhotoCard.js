@@ -63,10 +63,9 @@ const PhotoCard = ({ photo, ...props }) => {
   };
 
   return (
-    <Link
+    <div
       onMouseEnter={() => onHover(photo.id)}
       onMouseLeave={() => onLeave()}
-      to={`/photos/${photo.id}`}
       style={{
         position: 'relative',
         textAlign: 'center',
@@ -75,15 +74,17 @@ const PhotoCard = ({ photo, ...props }) => {
         )}`,
       }}
     >
-      <img
-        ref={refContainer}
-        src={photo.url}
-        alt={photo.title}
-        style={{
-          maxWidth: '250px',
-          borderRadius: '15px',
-        }}
-      />
+      <Link to={`/photos/${photo.id}`}>
+        <img
+          ref={refContainer}
+          src={photo.url}
+          alt={photo.title}
+          style={{
+            maxWidth: '250px',
+            borderRadius: '15px',
+          }}
+        />
+      </Link>
       <PinButtonContainer>
         {props.isHoverPhoto === photo.id && props.isSignedIn
           ? renderPinButton()
@@ -94,7 +95,7 @@ const PhotoCard = ({ photo, ...props }) => {
           ? renderAdminControls()
           : null}
       </AdminControlsContainer>
-    </Link>
+    </div>
   );
 };
 
