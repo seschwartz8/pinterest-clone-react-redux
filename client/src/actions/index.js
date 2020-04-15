@@ -2,6 +2,8 @@ import * as type from './types';
 import photos from '../apis/photos';
 import history from '../history';
 
+// AUTH ACTIONS
+
 export const signIn = (userId) => {
   return {
     type: type.SIGN_IN,
@@ -15,6 +17,38 @@ export const signOut = () => {
   };
 };
 
+export const pinPhoto = (photo) => {
+  return async (dispatch, getState) => {
+    // POST request with axios to pin photo to current user's board
+    const { userId } = getState().auth;
+
+    const response = await photos.post('/board', {
+      ...photo,
+      pinnedBy: userId,
+    });
+    dispatch({
+      type: type.PIN_PHOTO,
+      payload: response.data,
+    });
+  };
+};
+
+export const fetchBoard = () => {
+  return async (dispatch) => {
+    // GET request with axios to get all pinned photos
+    const response = await photos.get('/board');
+
+    console.log(response.data);
+
+    dispatch({
+      type: type.FETCH_BOARD,
+      payload: response.data,
+    });
+  };
+};
+
+// HOVER ACTIONS
+
 export const hoverPhoto = (photoId) => {
   return {
     type: type.HOVER_PHOTO,
@@ -27,6 +61,8 @@ export const leavePhoto = () => {
     type: type.LEAVE_PHOTO,
   };
 };
+
+// PHOTO ACTIONS
 
 export const createPhoto = (formValues) => {
   return async (dispatch, getState) => {
