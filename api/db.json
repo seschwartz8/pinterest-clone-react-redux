@@ -1,13 +1,6 @@
 {
   "photos": [
     {
-      "title": "PhotoSasa",
-      "url": "https://pbs.twimg.com/profile_images/429699335576506369/iHKwCi_M_400x400.jpeg",
-      "tags": "#sasa#cool",
-      "userId": "100409585657033242492",
-      "id": 3
-    },
-    {
       "title": "Panda",
       "url": "https://c402277.ssl.cf1.rackcdn.com/photos/18315/images/hero_small/Medium_WW230176.jpg?1576168323",
       "tags": "#cool#panda",
@@ -99,13 +92,6 @@
       "id": 17
     },
     {
-      "title": "Posted by lilschwartzy",
-      "tags": "#test#lilschwartzy",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png",
-      "userId": "115262079006091524724",
-      "id": 20
-    },
-    {
       "title": "Another Test",
       "url": "https://uhs.umich.edu/files/uhs/field/image/TEST.jpg",
       "tags": "#test#two",
@@ -134,54 +120,5 @@
       "id": 24
     }
   ],
-  "pins": [
-    {
-      "title": "Golden Retriever",
-      "url": "https://i.pinimg.com/564x/e5/b8/be/e5b8be568d41eccb95401caf2d96fada.jpg",
-      "tags": "#dog",
-      "userId": "100409585657033242492",
-      "id": 13,
-      "pinnedBy": "100409585657033242492"
-    },
-    {
-      "title": "Coding",
-      "url": "https://makeawebsitehub.com/wp-content/uploads/2016/02/learn-code-e1455713167295.jpg",
-      "tags": "#coding#cool",
-      "userId": "100409585657033242492",
-      "id": 14,
-      "pinnedBy": "100409585657033242492"
-    },
-    {
-      "title": "PhotoSasa",
-      "url": "https://pbs.twimg.com/profile_images/429699335576506369/iHKwCi_M_400x400.jpeg",
-      "tags": "#sasa#cool",
-      "userId": "100409585657033242492",
-      "id": 3,
-      "pinnedBy": "115262079006091524724"
-    },
-    {
-      "title": "Colored Driving",
-      "url": "https://i.pinimg.com/474x/ce/83/69/ce83696a7de3b1cc9356d6651fb91014.jpg",
-      "tags": "#driving#racing",
-      "userId": "100409585657033242492",
-      "id": 8,
-      "pinnedBy": "115262079006091524724"
-    },
-    {
-      "title": "Painting",
-      "url": "https://i.pinimg.com/474x/94/b7/21/94b721d6b117cd087e704678fa13dd39.jpg",
-      "tags": "#cool",
-      "userId": "100409585657033242492",
-      "id": 7,
-      "pinnedBy": "115262079006091524724"
-    },
-    {
-      "title": "Puppy",
-      "url": "https://dogtime.com/assets/uploads/2018/10/puppies-cover-1280x720.jpg",
-      "tags": "#dog#cute",
-      "userId": "100409585657033242492",
-      "id": 5,
-      "pinnedBy": "115262079006091524724"
-    }
-  ]
+  "pins": []
 }
