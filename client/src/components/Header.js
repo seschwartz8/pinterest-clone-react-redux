@@ -23,10 +23,10 @@ const Header = (props) => {
 
   return (
     <div className='ui secondary pointing menu'>
-      <Link to='/' className='item'>
+      <Link to='/' className='item' onClick={() => props.setSearchInput('')}>
         <i className='pinterest icon big' />
       </Link>
-      <Link to='/' className='item'>
+      <Link to='/' className='item' onClick={() => props.setSearchInput('')}>
         Home
       </Link>
       <div className='ui category search item'>
