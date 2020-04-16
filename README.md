@@ -18,9 +18,9 @@
 
 ## Description
 
-Simple Pinterest clone react app that utilizes redux, Google OAuth, portals, redux forms, and react router to provide CRUD functionality. You can log in with google, post photos, view all photos, view specific photo details, and edit/delete photos (but only if you were the one who posted them), and pin a photo to your board.
+A simple Pinterest clone app. You can log in with google, post photos, view all photos, view specific photo details, edit/delete photos (but only if you were the one who posted them), search for photos with specific tags, and pin photos to your pin board. If you click on "Pins" you should see all the photos you have pinned, and you can remove them from your pin board as well. This app utilizes redux, Google OAuth, portals, redux forms, and react router to provide CRUD functionality.
 
-I learned the basics of how to structure and route this website from a wonderful Udemy course by Stephen Grider: Modern React with Redux.
+I learned the basics of routing and implementing CRUD in react-redux apps from a wonderful Udemy course by Stephen Grider: Modern React with Redux.
 
 ## Installation
 
