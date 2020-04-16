@@ -20,7 +20,9 @@ class PhotoList extends Component {
   renderPhotos = () => {
     // Render all photos cards as HTML
     return this.props.photos.map((photo) => {
-      return <PhotoCard key={photo.id} photo={photo} />;
+      if (photo.tags.includes(this.props.searchInput)) {
+        return <PhotoCard key={photo.id} photo={photo} />;
+      }
     });
   };
 
@@ -36,6 +38,7 @@ class PhotoList extends Component {
 const mapStateToProps = (state) => {
   return {
     photos: Object.values(state.photos),
+    searchInput: state.search.searchInput,
   };
 };
 
