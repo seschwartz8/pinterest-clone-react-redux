@@ -12,6 +12,7 @@
 2. [Installation](#installation)
 3. [Technologies Used](#technologies-used)
 4. [Sample Images](#sample-images)
+5. [Known Bugs](#known-bugs)
 
 ---
 
@@ -61,6 +62,10 @@ I learned the basics of how to structure and route this website from a wonderful
 ##### Delete modal
 
 ![Delete modal](./img/delete-modal.png)
+
+## Known bugs
+
+- User can log in an pin a photo, but if two users are both logged in, they can't pin the same photo. I believe this is because pinned photos are saved to state as a 'pins' object, and it won't allow creation of two identical pins with different 'pinnedBy' values. This is definitely an area for future exploration and improvement.
 
 ---
 

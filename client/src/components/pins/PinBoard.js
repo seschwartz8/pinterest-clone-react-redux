@@ -23,7 +23,9 @@ class PinBoard extends Component {
       return 'Loading...';
     }
     return this.props.pins.map((pin) => {
-      return <PinCard key={pin.id} pin={pin} />;
+      if (pin.pinnedBy === this.props.userId) {
+        return <PinCard key={pin.id} pin={pin} />;
+      }
     });
   };
 
@@ -38,6 +40,7 @@ class PinBoard extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    userId: state.auth.userId,
     pins: Object.values(state.pins),
   };
 };
