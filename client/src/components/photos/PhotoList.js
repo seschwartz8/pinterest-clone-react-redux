@@ -18,12 +18,12 @@ class PhotoList extends Component {
   }
 
   renderPhotos = () => {
-    // Render all photos cards as HTML
-    return this.props.photos.map((photo) => {
-      if (photo.tags.includes(this.props.searchInput)) {
+    // Render all photos cards as HTML and filter by search term
+    return this.props.photos
+      .filter((photo) => photo.tags.includes(this.props.searchInput))
+      .map((photo) => {
         return <PhotoCard key={photo.id} photo={photo} />;
-      }
-    });
+      });
   };
 
   render() {

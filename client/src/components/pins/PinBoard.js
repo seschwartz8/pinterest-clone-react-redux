@@ -18,15 +18,15 @@ class PinBoard extends Component {
   }
 
   renderPhotos = () => {
-    // Render all photos cards as HTML
+    // Render all photos cards as HTML and filter by your own pins
     if (!this.props.pins) {
       return 'Loading...';
     }
-    return this.props.pins.map((pin) => {
-      if (pin.pinnedBy === this.props.userId) {
+    return this.props.pins
+      .filter((pin) => pin.pinnedBy === this.props.userId)
+      .map((pin) => {
         return <PinCard key={pin.id} pin={pin} />;
-      }
-    });
+      });
   };
 
   render() {

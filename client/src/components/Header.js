@@ -15,6 +15,12 @@ const Header = (props) => {
     history.push('/');
   };
 
+  const onKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      onSubmit();
+    }
+  };
+
   return (
     <div className='ui secondary pointing menu'>
       <Link to='/' className='item'>
@@ -38,8 +44,9 @@ const Header = (props) => {
             value={input}
             className='prompt'
             type='text'
-            placeholder='Search'
+            placeholder='Search by tags'
             onChange={(e) => setInput(e.target.value)}
+            onKeyPress={onKeyPress}
           />
         </div>
       </div>
