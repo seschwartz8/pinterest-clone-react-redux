@@ -2,6 +2,14 @@ import * as type from './types';
 import photos from '../apis/photos';
 import history from '../history';
 
+// SEARCH ACTIONS
+export const setSearchInput = (input) => {
+  return {
+    type: type.SET_SEARCH_INPUT,
+    payload: input,
+  };
+};
+
 // AUTH ACTIONS
 
 export const signIn = (userId) => {

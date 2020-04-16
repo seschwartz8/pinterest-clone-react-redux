@@ -48,6 +48,7 @@ I learned the basics of how to structure and route this website from a wonderful
 - Portals (to create modals)
 - json server (for running API)
 - Semantic UI
+- Syled components
 
 ## Sample Images
 

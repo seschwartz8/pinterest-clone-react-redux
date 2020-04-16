@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GoogleAuth from './GoogleAuth';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setSearchInput } from '../actions';
 import '../css/Header.css';
+import history from '../history';
 
 const Header = (props) => {
+  const [input, setInput] = useState('');
+
+  const onSubmit = () => {
+    // input has the search parameters
+    props.setSearchInput(input);
+    history.push('/');
+  };
+
   return (
     <div className='ui secondary pointing menu'>
       <Link to='/' className='item'>
@@ -16,9 +26,21 @@ const Header = (props) => {
       <div className='ui category search item'>
         <div className='ui transparent icon input'>
           <div className='left aligned'>
-            <i className='search link icon' />
+            <button
+              style={{ background: 'none', border: 'none' }}
+              type='submit'
+              onClick={onSubmit}
+            >
+              <i className='search link icon' />
+            </button>
           </div>
-          <input className='prompt' type='text' placeholder='Search' />
+          <input
+            value={input}
+            className='prompt'
+            type='text'
+            placeholder='Search'
+            onChange={(e) => setInput(e.target.value)}
+          />
         </div>
       </div>
       {props.isSignedIn ? (
@@ -45,4 +67,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { setSearchInput })(Header);

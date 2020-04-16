@@ -1,5 +1,8 @@
 // This file prevents typos between action types in actions vs. reducers
 
+// Search actions
+export const SET_SEARCH_INPUT = 'SET_SEARCH_INPUT';
+
 // Auth actions
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
